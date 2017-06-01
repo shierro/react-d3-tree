@@ -1,8 +1,16 @@
 {
  "name": "flare",
+ "attributes": {
+   "attribute A": "value A",
+   "attribute B": "value B"
+ },
  "children": [
   {
    "name": "analytics",
+   "attributes": {
+     "attribute A": "value A",
+     "attribute B": "value B"
+   },
    "children": [
     {
      "name": "cluster",
