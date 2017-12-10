@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// import {renderToString} from 'react-dom/server'
 import { TransitionGroup } from 'react-transition-group';
 import { layout, select, behavior, event } from 'd3';
 import clone from 'clone';
@@ -9,6 +10,7 @@ import uuid from 'uuid';
 import Node from '../Node';
 import Link from '../Link';
 import './style.css';
+import NodeComponent from './NodeComponent';
 
 export default class Tree extends React.Component {
   constructor(props) {
@@ -280,6 +282,7 @@ export default class Tree extends React.Component {
     const { nodes, links } = this.generateTree();
     const {
       nodeSvgShape,
+      nodeComponent,
       orientation,
       translate,
       pathFunc,
@@ -319,6 +322,7 @@ export default class Tree extends React.Component {
               <Node
                 key={nodeData.id}
                 nodeSvgShape={nodeSvgShape}
+                nodeComponent={NodeComponent}
                 orientation={orientation}
                 transitionDuration={transitionDuration}
                 nodeData={nodeData}
@@ -347,6 +351,7 @@ Tree.defaultProps = {
       r: 10,
     },
   },
+  nodeComponent: null,
   onClick: undefined,
   onMouseOver: undefined,
   onMouseOut: undefined,
@@ -377,6 +382,7 @@ Tree.propTypes = {
     shape: PropTypes.string,
     shapeProps: PropTypes.object,
   }),
+  nodeComponent: PropTypes.string,
   onClick: PropTypes.func,
   onMouseOver: PropTypes.func,
   onMouseOut: PropTypes.func,
