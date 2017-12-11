@@ -322,7 +322,7 @@ export default class Tree extends React.Component {
                 orientation={orientation}
                 transitionDuration={transitionDuration}
                 nodeData={nodeData}
-                name={nodeData.name}
+                name={`${nodeData.user.firstName} ${nodeData.user.lastName}`}
                 attributes={nodeData.attributes}
                 onClick={this.handleNodeToggle}
                 onMouseOver={this.handleOnMouseOverCb}
